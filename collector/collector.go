@@ -358,5 +358,9 @@ func NewCollector(system, endpoint, prefix string, servers []*CollectedServer) p
 	if isReplicatorEndpoint(system, endpoint) {
 		return newReplicatorCollector(getSystem(system, prefix), servers)
 	}
+
+	if isHealthzEndpoint(system, endpoint) {
+		return newHealthzCollector(getSystem(system, prefix), endpoint, servers)
+	}
 	return newNatsCollector(getSystem(system, prefix), endpoint, servers)
 }

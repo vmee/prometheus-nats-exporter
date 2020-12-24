@@ -52,6 +52,7 @@ type NATSExporterOptions struct {
 	GetReplicatorVarz    bool
 	GetStreamingChannelz bool
 	GetStreamingServerz  bool
+	GetHealthz           bool
 	RetryInterval        time.Duration
 	CertFile             string
 	KeyFile              string
@@ -201,6 +202,9 @@ func (ne *NATSExporter) initializeCollectors() error {
 	}
 	if opts.GetReplicatorVarz {
 		ne.createCollector(collector.ReplicatorSystem, "varz")
+	}
+	if opts.GetHealthz {
+		ne.createCollector(collector.CoreSystem, "healthz")
 	}
 	return nil
 }

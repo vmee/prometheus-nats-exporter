@@ -116,6 +116,7 @@ func main() {
 	flag.BoolVar(&opts.GetSubz, "subz", false, "Get subscription metrics.")
 	flag.BoolVar(&opts.GetStreamingChannelz, "channelz", false, "Get streaming channel metrics.")
 	flag.BoolVar(&opts.GetStreamingServerz, "serverz", false, "Get streaming server metrics.")
+	flag.BoolVar(&opts.GetHealthz, "healthz", false, "Get streaming server health state.")
 	flag.BoolVar(&opts.GetVarz, "varz", false, "Get general metrics.")
 	flag.StringVar(&opts.CertFile, "tlscert", "", "Server certificate file (Enables HTTPS).")
 	flag.StringVar(&opts.KeyFile, "tlskey", "", "Private key for server certificate (used with HTTPS).")
